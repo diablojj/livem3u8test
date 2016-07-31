@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #my_video_1 {
+            background-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+
+
+<h1>Video.js Example</h1>
+
+<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268"
+       data-setup='{}'>
+    <!--<source src="http://127.0.0.1:1888/getm3u8" type="application/x-mpegURL">-->
+</video>
+
+<!-- 第三方控件 -->
+<link href="./lib/video-js-cdn.css" rel="stylesheet">
+<script src="./lib/video.js"></script>
+<script src="./lib/videojs-contrib-hls.js"></script>
+
+<script>
+    // 初始化videojs组件, videohls作为plugin形式启动,具体自己看videojs
+    var liveUrl = 'http://127.0.0.1:1888/getm3u8';
+    var player = videojs('my_video_1', {
+                language: 'zh-CN'
+            }, function () {
+                this.src([{
+                    type: 'application/x-mpegURL',
+                    withCredentials: true,
+                    src: liveUrl
+                }]);
+
+                this.play();
+            }
+    );
+
+</script>
+
+</body>
+</html>
