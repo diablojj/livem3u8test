@@ -22,7 +22,7 @@ function start() {
 
     // 静态文件委托
     //app.use('/live', express.static('m3u8'));   //委托ts文件
-    app.use('/c', express.static('client'));   //委托ts文件
+    app.use('/c', express.static('client'));   //委托客户端文件
 
     var seq = 0;
 
@@ -79,13 +79,6 @@ function start() {
         });
     });
 }
-
-// m3u8接口
-
-
-
-// .ts接口
-
 
 // 主流程
 start();
